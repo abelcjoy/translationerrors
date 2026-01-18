@@ -3785,9 +3785,12 @@ function showDeconstruction(e, word, forcePin) {
     if (state.hudPinned && !forcePin) return;
 
     // Manage active visual state for the word
+    // Ensure we find the ghost-word element even if a child was clicked
+    const targetEl = e.target.closest('.ghost-word');
+
     document.querySelectorAll('.ghost-word').forEach(el => el.classList.remove('word-active'));
-    if (e.target.classList.contains('ghost-word')) {
-        e.target.classList.add('word-active');
+    if (targetEl) {
+        targetEl.classList.add('word-active');
     }
 
     if (forcePin) state.hudPinned = true;

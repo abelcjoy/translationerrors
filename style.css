@@ -517,9 +517,16 @@ body {
     position: relative;
 }
 
-.ghost-word:hover {
+.ghost-word:hover,
+.ghost-word.word-active {
     background: var(--gold-dim);
     border-bottom-style: solid;
+    outline: none;
+}
+
+.ghost-word.word-active {
+    background: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 15px var(--gold-glow);
 }
 
 .physical-layer {
