@@ -728,17 +728,21 @@ footer p {
 
     .book-progress-list {
         display: flex;
-        overflow-x: auto;
-        gap: 12px;
-        padding-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: 20px;
         border-right: none;
+        justify-content: center;
     }
 
     .book-progress-item {
         flex-shrink: 0;
-        padding: 8px 16px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
+        padding: 6px 14px;
+        background: rgba(212, 175, 55, 0.05);
+        /* Subtle gold tint */
+        border: 1px solid rgba(212, 175, 55, 0.1);
+        border-radius: 6px;
+        font-size: 0.8rem;
     }
 
     .methodology-card {
