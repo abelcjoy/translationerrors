@@ -3598,8 +3598,31 @@ function initApp() {
     buildLexicon();
     initTabs();
     initNavigation();
+    initMenu();
     renderAudit();
     initProgressList();
+}
+
+function initMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.querySelector('.progress-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    const toggleMenu = () => {
+        toggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    };
+
+    toggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // Auto-close menu when a book is clicked (mobile navigation behavior)
+    sidebar.addEventListener('click', (e) => {
+        if (e.target.closest('.book-progress-item')) {
+            toggleMenu();
+        }
+    });
 }
 
 function initTabs() {

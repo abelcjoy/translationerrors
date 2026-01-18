@@ -57,19 +57,80 @@ body {
     min-height: 100vh;
 }
 
-/* SIDEBAR REFINEMENT */
+/* SIDEBAR TRANSFORMATION (DRAWER MODE) */
 .progress-sidebar {
     width: var(--sidebar-width);
     height: 100vh;
-    position: sticky;
+    position: fixed;
     top: 0;
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(20px);
+    left: calc(var(--sidebar-width) * -1);
+    /* Hidden by default */
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(30px);
     border-right: 1px solid var(--border-color);
-    padding: 40px 24px;
+    padding: 100px 24px 40px;
+    /* Top padding for the header */
     display: flex;
     flex-direction: column;
-    z-index: 100;
+    z-index: 1000;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.progress-sidebar.active {
+    left: 0;
+}
+
+/* NAVIGATION OVERLAY */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* HAMBURGER TRIGGER */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    z-index: 1100;
+    margin-right: 20px;
+}
+
+.menu-toggle .bar {
+    width: 20px;
+    height: 2px;
+    background: var(--gold);
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .progress-sidebar h3 {
@@ -712,24 +773,19 @@ footer p {
 }
 
 /* MOBILE RESPONSIVENESS */
+/* --- MOBILE & TABLET RESPONSIVENESS (CLEANED) --- */
 @media (max-width: 1024px) {
     .app-container {
         flex-direction: column;
     }
 
-    .progress-sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        padding: 24px;
+    .main-content {
+        padding: 0;
     }
 
     .book-progress-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        /* 3 neat columns */
         gap: 8px;
         padding-bottom: 20px;
     }
@@ -743,7 +799,6 @@ footer p {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        text-align: left;
     }
 
     .book-name {
@@ -754,16 +809,11 @@ footer p {
 
     .methodology-card {
         display: none;
-        /* Hide on mobile to save space */
-    }
-
-    .main-content {
-        max-width: 100%;
     }
 
     .scanner-view {
         grid-template-columns: 1fr;
-        padding: 30px 20px;
+        padding: 20px;
     }
 
     .deconstruction-panel {
@@ -776,13 +826,17 @@ footer p {
         max-height: 50vh;
         overflow-y: auto;
         margin: 0;
-        box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8);
+        z-index: 1001;
     }
 }
 
 @media (max-width: 768px) {
+    .audit-hero {
+        padding: 40px 20px;
+    }
+
     .logo {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .main-header {
@@ -804,36 +858,21 @@ footer p {
 
     .side-arrow {
         transform: rotate(90deg);
-        padding: 0;
-        margin: -10px 0;
+        margin: -5px 0;
     }
 
     .audit-card {
-        padding: 24px;
-    }
-
-    .verse-text {
-        font-size: 1.1rem;
-    }
-
-    .scanned-verse {
-        gap: 15px;
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .tab-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-    }
-
-    .nav-select {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-
     .book-progress-list {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 columns for small phones */
+    }
+
+    .tab-btn {
+        padding: 8px 10px;
+        font-size: 0.7rem;
     }
 }
