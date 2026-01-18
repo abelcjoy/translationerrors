@@ -780,9 +780,19 @@ footer p {
         /* Break flex flow to ensure 100% width */
     }
 
+    /* REMOVE AUDIT/SIDEBAR CLUTTER FROM MOBILE */
+    .menu-toggle,
+    .progress-sidebar,
+    .sidebar-overlay,
+    .methodology-card {
+        display: none !important;
+    }
+
     .main-content {
         width: 100vw;
         max-width: 100%;
+        margin: 0;
+        padding: 0;
         overflow-x: hidden;
     }
 
