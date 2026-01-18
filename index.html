@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Translation Audit | Linguistic Re-Construction Engine</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="A comprehensive deep-audit of biblical translations, revealing the physical-concrete logic behind abstract theological concepts.">
+    <meta name="keywords"
+        content="bible translation, hebrew roots, greek philology, translation audit, theology deconstruction">
+    <meta name="author" content="Translation Audit Project">
+
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:title" content="The Translation Audit | Linguistic Re-Construction">
+    <meta property="og:description"
+        content="X-Ray your bible. Discover the original physical reality behind traditional translations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://translation-audit.netlify.app">
+
+    <!-- Favicon (Emoji System) -->
+    <link rel="icon" href="https://fav.farm/🏮">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&family=Noto+Serif+Hebrew:wght@400&family=Outfit:wght@400;700&family=Fira+Code:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="progress-sidebar">
+            <h3>AUDIT COVERAGE</h3>
+            <div id="book-progress-list" class="book-progress-list">
+                <!-- Books populated by JS -->
+            </div>
+            <div class="methodology-card">
+                <h4>METHODOLOGY</h4>
+                <p>Every word is cross-referenced against the BDB, Gesenius, and Strong’s Lexicons to identify
+                    physical-concrete drift.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="audit-hero">
+                <div class="logo">TRANSLATION <span>AUDIT</span></div>
+                <p class="tagline">Systematic Deep-Audit of 31,102 verses. Restoring the physical-concrete roots of the
+                    original logic.</p>
+            </div>
+
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="view-tabs">
+                        <button id="tab-registry" class="tab-btn active">Registry Feed</button>
+                        <button id="tab-scanner" class="tab-btn">Live Scanner</button>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div id="registry-search-container" class="search-container">
+                        <input type="text" id="audit-search" class="audit-search"
+                            placeholder="Search 420+ archived errors...">
+                    </div>
+                    <div id="scanner-controls" class="scanner-controls hidden">
+                        <select id="book-select" class="nav-select"></select>
+                        <select id="chapter-select" class="nav-select"></select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Audit Registry View (Default) -->
+            <section id="registry-view" class="registry-view">
+                <div id="audit-registry" class="audit-registry">
+                    <!-- Cards populated by JS -->
+                </div>
+            </section>
+
+            <!-- Live Scanner View (New) -->
+            <section id="scanner-view" class="scanner-view hidden">
+                <div class="scanner-display">
+                    <div id="verse-container" class="verse-container">
+                        <!-- Deconstructed verse content -->
+                    </div>
+                </div>
+                <div id="deconstruction-panel" class="deconstruction-panel hidden">
+                    <!-- Deep detail on the selected word -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>A project dedicated to the "Raw Layer" of the text.</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
