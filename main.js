@@ -208,6 +208,67 @@ const auditLog = [
         phonetic: "TZEH-dek"
     },
     {
+        verse: "Genesis 1:2",
+        category: "physical",
+        severity: "mid",
+        popular: "Deep / Abyss",
+        correction: "The Surging Water-Mass",
+        original: "תְּהוֹם",
+        impact: " 'Tehom' is related to 'Hamah' (to make a noise/surge). It's a physical mass of chaotic water, not an abstract dark pit.",
+        root: "THM (תהם) - Surge",
+        cite: "BDB 1019",
+        phonetic: "teh-HOME"
+    },
+    {
+        verse: "Exodus 15:11",
+        category: "theology",
+        severity: "high",
+        popular: "Holiness",
+        correction: "Separation / Set Apart",
+        original: "קֹדֶשׁ",
+        impact: " 'Holy' is now a vague 'goodness'. 'Qodesh' means to physically cut something off or set it apart from common use. It's a spatial distinction.",
+        root: "QD (קדש) - To Cut/Separate",
+        cite: "BDB 871 / Ges. 725",
+        phonetic: "KO-desh"
+    },
+    {
+        verse: "Job 19:25",
+        category: "theology",
+        severity: "high",
+        popular: "Redeemer",
+        correction: "Kinsman-Avenger / Restorer",
+        original: "גָּאַל",
+        impact: " 'Redeem' sounds like buying a coupon. 'Goel' is a family member who physically steps in to get your property back or protect your bloodline. It's a blood-duty.",
+        root: "GL (גאל) - To Buy Back / Rescue",
+        cite: "BDB 145",
+        phonetic: "ga-AHL"
+    },
+    {
+        verse: "Psalm 19:1",
+        category: "physical",
+        severity: "mid",
+        popular: "Glory",
+        correction: "Weight / Heaviness",
+        original: "כָּבוֹד",
+        impact: " 'Glory' is light/clouds. 'Kabod' is literal 'Weight'. To glorify someone is to acknowledge how 'Heavy' and significant they are in the physical system.",
+        root: "KBD (כבד) - Heavy/Dull",
+        cite: "BDB 457 / Ges. 385",
+        phonetic: "ka-VOD"
+    },
+    {
+        verse: "Hebrews 1:14",
+        category: "theology",
+        severity: "mid",
+        popular: "Angel",
+        correction: "Messenger / Agent",
+        original: "ἄγγελος",
+        impact: " 'Angel' implies a winged supernatural being. 'Angelos' (and Hebrew 'Malak') simply means an 'Agent' sent on a mission. It's a job title, not a species.",
+        root: "AGEL - To Bring News",
+        cite: "BDAG 8",
+        phonetic: "AN-ge-los",
+        bridge: { val: "Malak", script: "מַלְאָךְ" }
+    },
+    {
         verse: "Genesis 1:26",
         category: "theology",
         severity: "high",
@@ -3552,6 +3613,7 @@ const auditLog = [
 
 const state = {
     view: 'registry', // 'registry' or 'scanner'
+    activeCategory: 'all',
     activeBook: 'Genesis',
     activeChapter: 1,
     lexicon: {},
@@ -3611,8 +3673,21 @@ function initApp() {
     initMenu();
     initSourceToggle();
     initScrollTop();
+    initCategoryFilters();
     renderAudit();
     initProgressList();
+}
+
+function initCategoryFilters() {
+    const buttons = document.querySelectorAll('.cat-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            state.activeCategory = btn.dataset.cat;
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderAudit();
+        });
+    });
 }
 
 function initMenu() {
@@ -3976,12 +4051,16 @@ function renderAudit() {
     const searchTerm = document.getElementById('audit-search').value.toLowerCase();
 
     const filtered = auditLog.filter(item => {
-        return item.verse.toLowerCase().includes(searchTerm) ||
+        const matchesSearch = item.verse.toLowerCase().includes(searchTerm) ||
             item.popular.toLowerCase().includes(searchTerm) ||
             item.impact.toLowerCase().includes(searchTerm) ||
             item.original.toLowerCase().includes(searchTerm) ||
             item.correction.toLowerCase().includes(searchTerm) ||
             (item.root && item.root.toLowerCase().includes(searchTerm));
+
+        const matchesCategory = state.activeCategory === 'all' || item.category === state.activeCategory;
+
+        return matchesSearch && matchesCategory;
     });
 
     filtered.forEach(item => {

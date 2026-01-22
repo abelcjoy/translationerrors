@@ -82,6 +82,11 @@
 
             <!-- Audit Registry View (Default) -->
             <section id="registry-view" class="registry-view">
+                <div class="category-filters">
+                    <button class="cat-btn active" data-cat="all">All Audits</button>
+                    <button class="cat-btn" data-cat="physical">Physical Roots</button>
+                    <button class="cat-btn" data-cat="theology">Theological Shifts</button>
+                </div>
                 <div id="audit-registry" class="audit-registry">
                     <!-- Cards populated by JS -->
                 </div>
@@ -90,6 +95,7 @@
             <!-- Live Scanner View (New) -->
             <section id="scanner-view" class="scanner-view hidden">
                 <div class="scanner-display">
+                    <div class="scanline"></div>
                     <div id="verse-container" class="verse-container">
                         <!-- Deconstructed verse content -->
                     </div>
