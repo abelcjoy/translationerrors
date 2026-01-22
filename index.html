@@ -82,13 +82,25 @@
 
             <!-- Audit Registry View (Default) -->
             <section id="registry-view" class="registry-view">
-                <div class="category-filters">
-                    <button class="cat-btn active" data-cat="all">All Audits</button>
-                    <button class="cat-btn" data-cat="physical">Physical Roots</button>
-                    <button class="cat-btn" data-cat="theology">Theological Shifts</button>
-                </div>
-                <div id="audit-registry" class="audit-registry">
-                    <!-- Cards populated by JS -->
+                <div class="registry-layout">
+                    <div class="registry-main">
+                        <div class="category-filters">
+                            <button class="cat-btn active" data-cat="all">All Audits</button>
+                            <button class="cat-btn" data-cat="physical">Physical Roots</button>
+                            <button class="cat-btn" data-cat="theology">Theological Shifts</button>
+                        </div>
+                        <div id="audit-registry" class="audit-registry">
+                            <!-- Cards populated by JS -->
+                        </div>
+                    </div>
+                    <aside class="registry-sidebar">
+                        <div class="sidebar-block">
+                            <label>RECENT RESEARCH</label>
+                            <div id="recent-research-list" class="recent-research-list">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </section>
 

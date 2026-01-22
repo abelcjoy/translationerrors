@@ -333,9 +333,82 @@ body {
 
 /* FEED & CARDS */
 .registry-view {
-    padding: 40px;
-    max-width: 1000px;
+    padding: 60px 40px;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+.registry-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+}
+
+.registry-sidebar {
+    position: sticky;
+    top: 140px;
+    height: fit-content;
+}
+
+.sidebar-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 24px;
+}
+
+.sidebar-block label {
+    display: block;
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.recent-research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recent-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.recent-item:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold-dim);
+}
+
+.recent-item .research-word {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.recent-item .research-root {
+    font-family: 'Noto Serif Hebrew', serif;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.empty-recent {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
 }
 
 .category-filters {
@@ -899,13 +972,41 @@ body {
 }
 
 .scanner-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
     text-align: center;
-    padding: 60px;
+}
+
+.loading-matrix {
     font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
     color: var(--gold);
-    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    animation: pulseMatrix 2s infinite;
+}
+
+.loading-sub {
+    font-size: 0.65rem;
+    color: var(--text-muted);
     letter-spacing: 2px;
-    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulseMatrix {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.98);
+    }
 }
 
 .scanner-error {

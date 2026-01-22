@@ -403,6 +403,79 @@ const auditLog = [
         phonetic: "me-KHAY"
     },
     {
+        verse: "Leviticus 16:10",
+        category: "theology",
+        severity: "high",
+        popular: "Atonement",
+        correction: "The Covering / Smearing",
+        original: "כָּפַר",
+        impact: " 'Atonement' sounds like a legal payment. 'Kaphar' is the physical act of 'Smearing' or 'Covering' a surface (like pitch on Noah's ark). It's a protective 'Sealant' for the system.",
+        root: "KPR (כפר) - To Cover/Smear",
+        cite: "BDB 497 / Ges. 411",
+        phonetic: "ka-PHAR"
+    },
+    {
+        verse: "Genesis 1:2",
+        category: "physical",
+        severity: "mid",
+        popular: "Spirit / Wind",
+        correction: "A Violent Breath / Air-Force",
+        original: "רוּחַ",
+        impact: " 'Spirit' is a ghostly essence. 'Ruach' is the physical force of 'Air-in-Motion'. It's the 'Pneumatic Power' that drives the system, like wind in a sail.",
+        root: "RCH (רוח) - Air/Breathe",
+        cite: "BDB 924 / Ges. 765",
+        phonetic: "ROO-akh",
+        bridge: { val: "Pneuma", script: "πνεῦμα" }
+    },
+    {
+        verse: "John 3:16",
+        category: "theology",
+        severity: "high",
+        popular: "Believe",
+        correction: "To be Firm / To Support",
+        original: "πιστεύων",
+        impact: " 'Believe' is a mental opinion. 'Pisteuo' (and Hebrew 'Aman') means to physically 'Lean Your Weight' on something. It's 'Structural Reliability', not just 'Agreement'.",
+        root: "PIST - Let/Persuade / AMN - Firm",
+        cite: "BDAG 816 / BDB 52",
+        phonetic: "pees-TEV-on"
+    },
+    {
+        verse: "Isaiah 40:1",
+        category: "physical",
+        severity: "low",
+        popular: "Comfort",
+        correction: "To Sigh Deeply / Heavy Breath",
+        original: "נַחֲמוּ",
+        impact: " 'Comfort' is a psychological state. 'Nacham' is the physical act of 'Sighing' or 'Catching your Breath' after a heavy load is lifted. it's 'Respiratory Relief'.",
+        root: "NCHM (נחם) - To Pant/Groan",
+        cite: "BDB 636 / Ges. 515",
+        phonetic: "na-kha-MOO"
+    },
+    {
+        verse: "2 Corinthians 12:9",
+        category: "theology",
+        severity: "high",
+        popular: "My grace is sufficient",
+        correction: "My Stoop-Down is Enough",
+        original: "χάρις",
+        impact: " 'Grace' is a religious substance. 'Charis' (and Hebrew 'Khanan') is the physical 'Bending over' of a king to an inferior. It's 'Vertical Alignment for Assistance'.",
+        root: "CHR - To Lean/Incline",
+        cite: "BDAG 1077 / BDB 335",
+        phonetic: "KHA-rees"
+    },
+    {
+        verse: "Genesis 1:26",
+        category: "theology",
+        severity: "high",
+        popular: "Image",
+        correction: "The Shadow / Representative Outline",
+        original: "צֶלֶם",
+        impact: " 'Tselem' is a shadow cast on the ground. To be in the image of the Power is to be a physical 'Shadow-Representative' in the terrain. It's a role, not a look.",
+        root: "TZL (צל) - Shadow",
+        cite: "BDB 853 / Ges. 706",
+        phonetic: "TZEH-lem"
+    },
+    {
         verse: "Genesis 1:26",
         category: "theology",
         severity: "high",
@@ -3751,6 +3824,7 @@ const state = {
     activeBook: 'Genesis',
     activeChapter: 1,
     lexicon: {},
+    recentResearch: [],
     hudPinned: false,
     source: 'web' // 'web' or 'kjv'
 };
@@ -3810,6 +3884,7 @@ function initApp() {
     initScrollTop();
     initCategoryFilters();
     renderAudit();
+    renderRecentResearch();
     initProgressList();
 }
 
@@ -3819,7 +3894,8 @@ function saveState() {
         activeChapter: state.activeChapter,
         source: state.source,
         view: state.view,
-        activeCategory: state.activeCategory
+        activeCategory: state.activeCategory,
+        recentResearch: state.recentResearch
     }));
 }
 
@@ -3832,6 +3908,7 @@ function loadState() {
         state.source = data.source || state.source;
         state.view = data.view || state.view;
         state.activeCategory = data.activeCategory || state.activeCategory;
+        state.recentResearch = data.recentResearch || [];
     }
 }
 
@@ -3976,7 +4053,12 @@ function updateChapters() {
 // The core "Live Scanner" rendering engine
 async function renderScanner() {
     const container = document.getElementById('verse-container');
-    container.innerHTML = '<div class="scanner-loading">Initializing Satellite Link... Scanning Text...</div>';
+    container.innerHTML = `
+        <div class="scanner-loading">
+            <div class="loading-matrix">DECRYPTING TEXTUAL LAYERS...</div>
+            <div class="loading-sub">ESTABLISHING TELEPATHIC LINK: [BIBLE-API.COM]</div>
+        </div>
+    `;
 
     try {
         const bookName = state.activeBook.toLowerCase().replace(' ', '');
@@ -3995,14 +4077,14 @@ async function renderScanner() {
         // Depth Meter Stats
         const mssDepth = (98 + Math.random() * 1.8).toFixed(1);
         const lexicalFid = (92 + Math.random() * 7).toFixed(1);
-        const semanticGlow = (85 + Math.random() * 12).toFixed(1);
+        const signalStrength = (85 + Math.random() * 14).toFixed(1);
 
         const statsPanel = document.createElement('div');
         statsPanel.className = 'scanner-stats';
         statsPanel.innerHTML = `
             <div class="stat"><label>MSS DEPTH:</label> <span>${mssDepth}%</span></div>
             <div class="stat"><label>LEXICAL FID:</label> <span>${lexicalFid}%</span></div>
-            <div class="stat"><label>SEMANTIC GLOW:</label> <span>${semanticGlow}%</span></div>
+            <div class="stat"><label>SIGNAL:</label> <span>${signalStrength}dB</span></div>
             <div class="stat"><label>CID:</label> <span>${bookName.toUpperCase()}-X</span></div>
         `;
         container.appendChild(statsPanel);
@@ -4093,6 +4175,14 @@ function showDeconstruction(e, word, forcePin) {
 
     if (forcePin) state.hudPinned = true;
 
+    // Track Recent Research
+    if (!state.recentResearch.includes(word)) {
+        state.recentResearch.unshift(word);
+        if (state.recentResearch.length > 5) state.recentResearch.pop();
+        saveState();
+        renderRecentResearch();
+    }
+
     panel.classList.remove('hidden');
     panel.innerHTML = `
         <div class="panel-header">
@@ -4170,6 +4260,33 @@ function hideDeconstruction() {
     const panel = document.getElementById('deconstruction-panel');
     panel.classList.add('hidden');
     document.querySelectorAll('.ghost-word').forEach(el => el.classList.remove('word-active'));
+}
+
+function renderRecentResearch() {
+    const container = document.getElementById('recent-research-list');
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (state.recentResearch.length === 0) {
+        container.innerHTML = '<div class="empty-recent">Awaiting Input...</div>';
+        return;
+    }
+
+    state.recentResearch.forEach(word => {
+        const item = document.createElement('div');
+        item.className = 'recent-item';
+        const data = state.lexicon[word];
+        item.innerHTML = `
+            <span class="research-word">${word.toUpperCase()}</span>
+            <span class="research-root">${data.original}</span>
+        `;
+        item.onclick = () => {
+            state.view = 'scanner';
+            document.getElementById('tab-scanner').click();
+            // This is a shortcut, in a real app we'd scroll to the card if in registry
+        };
+        container.appendChild(item);
+    });
 }
 
 function closeHud() {
