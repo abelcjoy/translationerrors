@@ -3994,15 +3994,16 @@ const auditLog = [
 // --- LIVE SCANNER PIVOT ---
 
 const state = {
-    view: 'registry', // 'registry' or 'scanner'
+    view: 'registry',
     activeCategory: 'all',
     activeBook: 'Genesis',
     activeChapter: 1,
     lexicon: {},
     recentResearch: [],
-    ledger: [], // Saved audits (Favorites)
+    ledger: [],
     hudPinned: false,
-    source: 'web' // 'web' or 'kjv'
+    source: 'web',
+    heatmapActive: false // NEW
 };
 
 // Build the lexicon from the auditLog
@@ -4057,10 +4058,11 @@ function initApp() {
     initNavigation();
     initMenu();
     initSourceToggle();
+    initHeatmapToggle(); // NEW
     initScrollTop();
     initCategoryFilters();
-    initMatrix(); // Cinematic Background
-    handleDeepLinks(); // URL Logic
+    initMatrix();
+    handleDeepLinks();
     renderAudit();
     renderRecentResearch();
     renderLedger();
@@ -4142,6 +4144,16 @@ function initSourceToggle() {
         state.source = 'kjv';
         kjvBtn.classList.add('active');
         webBtn.classList.remove('active');
+        renderScanner();
+    });
+}
+
+function initHeatmapToggle() {
+    const btn = document.getElementById('toggle-heatmap');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        state.heatmapActive = !state.heatmapActive;
+        btn.classList.toggle('active');
         renderScanner();
     });
 }
@@ -4270,6 +4282,9 @@ async function renderScanner() {
         `;
         container.appendChild(statsPanel);
 
+        // Update Telemetry
+        updateTelemetry(data.verses);
+
         data.verses.forEach(v => {
             const verseEl = document.createElement('div');
             verseEl.className = 'scanned-verse';
@@ -4289,6 +4304,45 @@ async function renderScanner() {
     } catch (err) {
         container.innerHTML = '<div class="scanner-error">Link Interrupted. Check network connection.</div>';
     }
+}
+
+function updateTelemetry(verses) {
+    const meter = document.getElementById('lexical-saturation-fill');
+    const anomalyList = document.getElementById('drift-anomalies');
+    const fidelityVal = document.getElementById('mss-fidelity-score');
+
+    if (!meter || !anomalyList || !fidelityVal) return;
+
+    let hits = 0;
+    let totalWords = 0;
+    const lexiconWords = Object.keys(state.lexicon);
+    const anomalies = [];
+
+    verses.forEach(v => {
+        const words = v.text.toLowerCase().match(/\b(\w+)\b/g) || [];
+        totalWords += words.length;
+        words.forEach(w => {
+            if (state.lexicon[w]) {
+                hits++;
+                if (!anomalies.find(a => a.word === w)) {
+                    anomalies.push({ word: w, verse: v.verse });
+                }
+            }
+        });
+    });
+
+    const saturation = totalWords > 0 ? (hits / totalWords) * 100 : 0;
+    meter.style.width = `${Math.min(saturation * 2, 100)}%`; // Scaled for visibility
+
+    fidelityVal.textContent = (99.8 - (saturation / 10)).toFixed(1) + '%';
+
+    anomalyList.innerHTML = '';
+    anomalies.slice(0, 8).forEach(a => {
+        const el = document.createElement('div');
+        el.className = 'anomaly-scan';
+        el.innerHTML = `<span class="scan-word">${a.word.toUpperCase()}</span> <span class="scan-verse">CH${state.activeChapter}:${a.verse}</span>`;
+        anomalyList.appendChild(el);
+    });
 }
 
 // Transforms standard text into deconstructed physical text
@@ -4319,7 +4373,9 @@ function transformText(raw) {
         const regex = new RegExp(`\\b${word}\\b`, 'gi');
         result = result.replace(regex, (match) => {
             const data = state.lexicon[word.toLowerCase()];
-            return `<span class="ghost-word" 
+            const severityClass = state.heatmapActive ? `heatmap-hit intensity-${data.severity || 'mid'}` : '';
+
+            return `<span class="ghost-word ${severityClass}" 
                           onmouseenter="showDeconstruction(event, '${word.toLowerCase()}', false)"
                           onmouseleave="hideDeconstruction()"
                           onclick="showDeconstruction(event, '${word.toLowerCase()}', true)"

@@ -715,9 +715,163 @@ body {
     transition: var(--transition-smooth);
 }
 
-.source-btn.active {
-    background: var(--gold);
-    color: var(--bg-obsidian);
+/* HEATMAP TOGGLE & CONTROLS */
+.heatmap-toggle {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.heatmap-toggle.active {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.heatmap-toggle.active .pulse-dot {
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulse-glow 1.5s infinite;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+}
+
+/* SCANNER LAYOUT GUTS */
+.scanner-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    align-items: start;
+}
+
+.research-telemetry {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.telemetry-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.telemetry-block label {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.saturation-meter {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: var(--cyan);
+    box-shadow: 0 0 15px var(--cyan);
+    transition: width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.anomaly-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.anomaly-scan {
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    padding: 8px;
+    background: rgba(255, 62, 62, 0.03);
+    border-left: 2px solid var(--red);
+    display: flex;
+    justify-content: space-between;
+}
+
+.scan-word {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.scan-verse {
+    color: var(--red);
+    opacity: 0.6;
+}
+
+.telemetry-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: var(--font-display);
+}
+
+/* HEATMAP VISUAL OVERLAYS */
+.ghost-word.heatmap-hit {
+    position: relative;
+    border-bottom: 1px solid transparent;
+}
+
+.ghost-word.heatmap-hit.intensity-high {
+    background: rgba(255, 62, 62, 0.1);
+    box-shadow: inset 0 0 20px rgba(255, 62, 62, 0.05);
+    color: #ff7675;
+}
+
+.ghost-word.heatmap-hit.intensity-mid {
+    background: rgba(255, 159, 67, 0.08);
+    box-shadow: inset 0 0 20px rgba(255, 159, 67, 0.05);
+    color: #fab1a0;
+}
+
+.ghost-word.heatmap-hit::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
 }
 
 .scroll-top {

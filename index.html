@@ -88,6 +88,9 @@
                             <button id="toggle-web" class="source-btn active">WEB</button>
                             <button id="toggle-kjv" class="source-btn">KJV</button>
                         </div>
+                        <button id="toggle-heatmap" class="heatmap-toggle" title="Toggle Semantic Heatmap">
+                            <span class="pulse-dot"></span> HEATMAP
+                        </button>
                     </div>
                 </div>
             </header>
@@ -141,11 +144,34 @@
 
             <!-- Live Scanner View (New) -->
             <section id="scanner-view" class="scanner-view hidden">
-                <div class="scanner-display">
-                    <div class="scanline"></div>
-                    <div id="verse-container" class="verse-container">
-                        <!-- Deconstructed verse content -->
+                <div class="scanner-layout">
+                    <div class="scanner-display">
+                        <div class="scanline"></div>
+                        <div id="verse-container" class="verse-container">
+                            <!-- Deconstructed verse content -->
+                        </div>
                     </div>
+
+                    <!-- Research Telemetry Aside -->
+                    <aside class="research-telemetry">
+                        <div class="telemetry-block">
+                            <label>LEXICAL SATURATION</label>
+                            <div class="saturation-meter">
+                                <div id="lexical-saturation-fill" class="meter-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="telemetry-block">
+                            <label>DRIFT ANOMALIES</label>
+                            <div id="drift-anomalies" class="anomaly-list">
+                                <!-- Populated by scanner logic -->
+                                <div class="anomaly-scan">Awaiting Input...</div>
+                            </div>
+                        </div>
+                        <div class="telemetry-block">
+                            <label>MSS FIDELITY</label>
+                            <div id="mss-fidelity-score" class="telemetry-val">--%</div>
+                        </div>
+                    </aside>
                 </div>
                 <div id="deconstruction-panel" class="deconstruction-panel hidden">
                     <!-- Deep detail on the selected word -->
