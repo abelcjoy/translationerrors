@@ -15,6 +15,7 @@
     --border-color: rgba(255, 255, 255, 0.08);
     --sidebar-width: 300px;
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --glow-high: 0 0 30px rgba(255, 62, 62, 0.15);
 }
 
 * {
@@ -446,9 +447,67 @@ body {
     vertical-align: middle;
 }
 
-.impact-section {
-    padding-top: 24px;
-    border-top: 1px solid var(--border-color);
+/* SCANNER CONTROLS / SOURCE TOGGLE */
+.scanner-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.source-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.source-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+}
+
+.source-btn.active {
+    background: var(--gold);
+    color: var(--bg-obsidian);
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-card);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1002;
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top:hover {
+    border-color: var(--gold);
+    background: var(--gold-dim);
+    transform: translateY(-5px);
+}
+
+.audit-card.severity-high {
+    border-left: 4px solid var(--red);
+    box-shadow: var(--glow-high);
 }
 
 .impact-section h4 {

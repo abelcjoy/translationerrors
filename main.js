@@ -178,7 +178,10 @@ const auditLog = [
         popular: "Desire / Lust",
         correction: "Stretching Toward / Turning",
         original: "תְּשׁוּקָה",
-        impact: "Translators often add a 'lustful' or 'sinful' tone here. The root is about a physical 'turning' or a circular stretching toward something. It's a movement of the focus."
+        impact: "Translators often add a 'lustful' or 'sinful' tone here. The root is about a physical 'turning' or a circular stretching toward something. It's a movement of the focus.",
+        root: "SHQ (שוק) - To Run/Stretch",
+        cite: "BDB 1003",
+        phonetic: "tesh-oo-KAH"
     },
     {
         verse: "Genesis 4:1",
@@ -187,7 +190,10 @@ const auditLog = [
         popular: "Knew / To Know",
         correction: "Intimate Perception / Experience",
         original: "יָדַע",
-        impact: "Adam 'knew' Eve. In Hebrew, 'Yada' is sensory perception through experience, not just data in the brain."
+        impact: "Adam 'knew' Eve. In Hebrew, 'Yada' is sensory perception through experience, not just data in the brain.",
+        root: "YD (יד) - Hand/Knowledge",
+        cite: "BDB 393 / Ges. 330",
+        phonetic: "ya-DAH"
     },
     {
         verse: "Psalm 23:3",
@@ -196,7 +202,10 @@ const auditLog = [
         popular: "Righteousness",
         correction: "The Straight Path / Correctness",
         original: "צֶדֶק",
-        impact: " 'Tzedek' is about being 'Correct' or 'Straight'. It's physical alignment with a standard."
+        impact: " 'Tzedek' is about being 'Correct' or 'Straight'. It's physical alignment with a standard.",
+        root: "TZD (צדק) - Straight",
+        cite: "BDB 841 / Ges. 696",
+        phonetic: "TZEH-dek"
     },
     {
         verse: "Genesis 1:26",
@@ -3546,7 +3555,8 @@ const state = {
     activeBook: 'Genesis',
     activeChapter: 1,
     lexicon: {},
-    hudPinned: false
+    hudPinned: false,
+    source: 'web' // 'web' or 'kjv'
 };
 
 // Build the lexicon from the auditLog
@@ -3599,6 +3609,8 @@ function initApp() {
     initTabs();
     initNavigation();
     initMenu();
+    initSourceToggle();
+    initScrollTop();
     renderAudit();
     initProgressList();
 }
@@ -3622,6 +3634,40 @@ function initMenu() {
         if (e.target.closest('.book-progress-item')) {
             toggleMenu();
         }
+    });
+}
+
+function initSourceToggle() {
+    const webBtn = document.getElementById('toggle-web');
+    const kjvBtn = document.getElementById('toggle-kjv');
+
+    webBtn.addEventListener('click', () => {
+        state.source = 'web';
+        webBtn.classList.add('active');
+        kjvBtn.classList.remove('active');
+        renderScanner();
+    });
+
+    kjvBtn.addEventListener('click', () => {
+        state.source = 'kjv';
+        kjvBtn.classList.add('active');
+        webBtn.classList.remove('active');
+        renderScanner();
+    });
+}
+
+function initScrollTop() {
+    const btn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btn.classList.remove('hidden');
+        } else {
+            btn.classList.add('hidden');
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
@@ -3699,7 +3745,9 @@ async function renderScanner() {
 
     try {
         const bookName = state.activeBook.toLowerCase().replace(' ', '');
-        const response = await fetch(`https://bible-api.com/${bookName}+${state.activeChapter}`);
+        // Map the source to the API parameter
+        const translation = state.source === 'kjv' ? 'kjv' : 'web';
+        const response = await fetch(`https://bible-api.com/${bookName}+${state.activeChapter}?translation=${translation}`);
         const data = await response.json();
 
         container.innerHTML = '';
