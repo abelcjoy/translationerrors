@@ -568,6 +568,30 @@ body {
     min-width: 0;
     position: relative;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+}
+
+.scanner-stats {
+    display: flex;
+    gap: 30px;
+    padding: 20px 30px;
+    background: rgba(212, 175, 55, 0.05);
+    border-bottom: 1px solid var(--gold-dim);
+    margin-bottom: 30px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+}
+
+.stat label {
+    color: var(--text-muted);
+    margin-right: 8px;
+}
+
+.stat span {
+    color: var(--gold);
+    font-weight: 700;
 }
 
 .scanline {
@@ -716,6 +740,34 @@ body {
 .panel-item label {
     font-size: 0.7rem;
     margin-bottom: 8px;
+}
+
+.panel-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.share-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.share-btn:hover {
+    background: var(--gold-dim);
+    border-color: var(--gold);
 }
 
 /* HUD PINNING ELEMENTS */
