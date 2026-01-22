@@ -136,16 +136,128 @@ const auditLog = [
         phonetic: "AHF"
     },
     {
-        verse: "Genesis 9:16",
+        verse: "Matthew 4:17",
+        category: "theology",
+        severity: "high",
+        popular: "Repent",
+        correction: "Change Perception / After-Mind",
+        original: "μετανοέω",
+        impact: " 'Repent' sounds like feeling bad or religious penance. 'Metanoeo' is to physically change your 'Mind-Map' (Noeo) after (Meta) receiving new logic. It's a re-orientation of the steering.",
+        root: "META - After / NOEO - To Perceive",
+        cite: "BDAG 640 / Str. 3340",
+        phonetic: "me-ta-no-EH-oh",
+        bridge: { val: "Shoov", script: "שׁוּב" }
+    },
+    {
+        verse: "Mark 1:1",
+        category: "theology",
+        severity: "mid",
+        popular: "Gospel",
+        correction: "Victory Announcement / Good News",
+        original: "εὐαγγέλιον",
+        impact: " 'Gospel' is a church category. 'Euangelion' was a secular military term for the announcement of a battlefield victory. It's 'Operational Success Data'.",
+        root: "EU - Good / ANGELOS - Messenger",
+        cite: "BDAG 402",
+        phonetic: "yoo-an-GHEL-ee-on"
+    },
+    {
+        verse: "Romans 5:1",
+        category: "theology",
+        severity: "high",
+        popular: "Justified",
+        correction: "Aligned to the Standard / Straightened",
+        original: "δικαιόω",
+        impact: " 'Justified' is a legal feeling. 'Dikaioo' is to be 'Straightened' like a piece of wood aligned to a plumb-line. It's physical correctness in the system.",
+        root: "DIKE - Custom/Right",
+        cite: "BDAG 249",
+        phonetic: "dee-kai-OH-oh",
+        bridge: { val: "Tzadaq", script: "צָדַק" }
+    },
+    {
+        verse: "John 17:17",
+        category: "theology",
+        severity: "mid",
+        popular: "Sanctify",
+        correction: "Set as Separate / Cut Apart",
+        original: "ἁγιάζω",
+        impact: " 'Sanctify' sounds like becoming 'holy-looking'. 'Hagiazo' is the physical act of moving an object from the common pile to a protected 'Special Zone'. It's 'Spatial Dedication'.",
+        root: "HAG - To Separate",
+        cite: "BDAG 10 / BDB 871",
+        phonetic: "ha-ghee-AD-zo"
+    },
+    {
+        verse: "Romans 3:25",
+        category: "theology",
+        severity: "high",
+        popular: "Propitiation",
+        correction: "The Covering-Place / Mercy-Seat",
+        original: "ἱλαστήριον",
+        impact: " 'Propitiation' is a theological theory. 'Hilasterion' is a physical object—the gold lid (Mercy Seat) of the Ark. It's the 'Interface-Point' where the drift is covered.",
+        root: "HILA - To Propitiate/Cover",
+        cite: "BDAG 475 / Str. 2435",
+        phonetic: "hee-las-TAY-ree-on",
+        bridge: { val: "Kapporet", script: "כַּפֹּרֶת" }
+    },
+    {
+        verse: "Ephesians 1:4",
+        category: "theology",
+        severity: "mid",
+        popular: "Chosen / Chosen-One",
+        correction: "Out-Picked / Selected",
+        original: "ἐκλέγομαι",
+        impact: " 'Chosen' sounds mystical. 'Eklego' is to physically reach into a pile and pull one out (Out-Picking). It's an 'Active Selection Process'.",
+        root: "EK - Out / LEGO - To Pick/Say",
+        cite: "BDAG 305",
+        phonetic: "ek-LE-go-mai",
+        bridge: { val: "Bachir", script: "בָּחִיר" }
+    },
+    {
+        verse: "Matthew 28:19",
         category: "physical",
         severity: "mid",
-        popular: "Everlasting / Eternal",
-        correction: "Beyond the Horizon (Concealed)",
-        original: "עוֹלָם",
-        impact: "We think of 'forever' as an infinite number line. 'Olam' means a point so far away in time or space that it is hidden from view. It's about reaching your visual limit, not a mathematical eternity.",
-        root: "OLM (עלם) - Conceal/Hide",
-        cite: "BDB 761 / Ges. 610",
-        phonetic: "oh-LAHM"
+        popular: "Baptizing",
+        correction: "Dipping / Immersing",
+        original: "βαπτίζω",
+        impact: " 'Baptize' is a religious rite. 'Baptizo' is to physically plunge something under water (like dyeing cloth). It's 'Total Submersion'.",
+        root: "BAPT - To Dip/Plunge",
+        cite: "BDAG 164",
+        phonetic: "bap-TEE-zo"
+    },
+    {
+        verse: "Genesis 15:18",
+        category: "theology",
+        severity: "high",
+        popular: "Covenant",
+        correction: "Blood-Bond / Cutting a Treaty",
+        original: "בְּרִית",
+        impact: " 'Covenant' is an agreement. 'Berith' comes from 'Barah' (to eat/cut). It's the physical act of 'Cutting Animals' to walk between the pieces. It's a 'Death-Seal'.",
+        root: "BRH (ברה) - To Eat/Cut",
+        cite: "BDB 136",
+        phonetic: "be-REETH"
+    },
+    {
+        verse: "Genesis 8:20",
+        category: "physical",
+        severity: "mid",
+        popular: "Sacrifice / Offering",
+        correction: "Slaughter / Lowering",
+        original: "זֶבַח",
+        impact: " 'Sacrifice' is a 'holy gift'. 'Zebach' is the physical act of 'Slaughtering' an animal for a meal or ritual. It's 'Biological Processing'.",
+        root: "ZBH (זבח) - To Slaughter",
+        cite: "BDB 256",
+        phonetic: "ZEH-bakh"
+    },
+    {
+        verse: "Psalm 5:2",
+        category: "physical",
+        severity: "mid",
+        popular: "Prayer",
+        correction: "Self-Judging / Intervention",
+        original: "תְּפִלָּה",
+        impact: " 'Prayer' is asking for things. 'Tephillah' comes from 'Palal' (to judge/intervene). It's the physical act of 'Prostrating' to ask for a logical judgment or intervention.",
+        root: "PLL (פלל) - To Judge/Mediate",
+        cite: "BDB 813",
+        phonetic: "te-phee-LAH"
     },
     {
         verse: "Psalm 95:6",
@@ -530,13 +642,76 @@ const auditLog = [
         impact: " 'Praise' is usually vocal. 'Halal' (as in Hallelujah) means to emit a physical flash of light or to boast exuberantly like a shining beacon. It's a visible physical state."
     },
     {
+        verse: "Psalm 132:13",
+        category: "physical",
+        severity: "mid",
+        popular: "Zion",
+        correction: "The Parched Place / Signpost",
+        original: "צִיּוֹן",
+        impact: " 'Zion' is often just a holy mountain. 'Tsiyon' comes from 'Tsiyah' (to be dry/parched) or 'Tsiyun' (a sign/pillar). It's the physical 'High-Ground' or 'Marker' in the desert.",
+        root: "TSY (ציה) - Dry / TSY (צין) - Pillar",
+        cite: "BDB 851",
+        phonetic: "tsee-YON"
+    },
+    {
+        verse: "Exodus 25:9",
+        category: "physical",
+        severity: "mid",
+        popular: "Tabernacle",
+        correction: "The Dwelling-Tent / Settlement",
+        original: "מִשְׁכָּן",
+        impact: " 'Tabernacle' is a religious word. 'Mishkan' is from 'Shakan' (to settle down/dwell). it's the physical 'Housing-Unit' for the presence. It's 'Portable Architecture'.",
+        root: "SHKN (שכן) - To Settle",
+        cite: "BDB 1015 / Ges. 823",
+        phonetic: "meesh-KAHN"
+    },
+    {
+        verse: "Exodus 28:1",
+        category: "theology",
+        severity: "mid",
+        popular: "Priest",
+        correction: "The Official / Service-Agent",
+        original: "כֹּהֵן",
+        impact: " 'Priest' is a religious mediator. 'Kohen' refers to an 'Official' or 'Agent' responsible for the system's management. It's an 'Administrative Service Title'.",
+        root: "KHN (כהן) - To Serve/Officiate",
+        cite: "BDB 463",
+        phonetic: "ko-HAYN"
+    },
+    {
+        verse: "Exodus 27:1",
+        category: "physical",
+        severity: "mid",
+        popular: "Altar",
+        correction: "The Slaughter-Place",
+        original: "מִזְבֵּחַ",
+        impact: " 'Altar' is a table for gifts. 'Mizbeach' is specifically the 'Place of Slaughter' (from Zebach). It's the 'Processing Point' for the biological systems.",
+        root: "ZBH (זבח) - To Slaughter",
+        cite: "BDB 258",
+        phonetic: "meez-BAY-akh"
+    },
+    {
+        verse: "Isaiah 53:5",
+        category: "theology",
+        severity: "high",
+        popular: "Stripes / Bruises",
+        correction: "The Joining / The Blow-Mark",
+        original: "חַבּוּרָה",
+        impact: " 'Stripes' are whip marks. 'Chabburah' is from 'Chabar' (to join/bind). It's the physical 'Bruise' where the flesh is fused by the blow. Redemption is a 'Binding' process.",
+        root: "CHBR (חבר) - To Bind/Join",
+        cite: "BDB 288",
+        phonetic: "khab-boo-RAH"
+    },
+    {
         verse: "Deuteronomy 32:43",
         category: "physical",
         severity: "mid",
         popular: "Atonement",
         correction: "To Wipe / Cover Over",
         original: "כָּפַר",
-        impact: " 'Atonement' is a theological concept of paying for sin. 'Kaphar' is the physical act of wiping a surface clean or covering a hole. It's about physical restoration."
+        impact: " 'Atonement' is a religious theory. 'Kaphar' is to physically 'Wipe' or 'Cover' (like pitch on the Ark). It's the 'Sealant' that stops the system's decay.",
+        root: "KPR (כפר) - To Cover",
+        cite: "BDB 497",
+        phonetic: "ka-PHAR"
     },
     {
         verse: "Leviticus 17:11",
@@ -4226,9 +4401,13 @@ async function copyResearchBrief(word) {
     const data = state.lexicon[word.toLowerCase()];
     if (!data) return;
 
+    const bookName = state.activeBook.toUpperCase();
+    const cid = `${bookName}-X${Math.floor(1000 + Math.random() * 9000)}`;
+
     const brief = `
 📜 TRANSLATION AUDIT: ${word.toUpperCase()}
 ---------------------------
+Citation ID: ${cid}
 Physical Core: ${data.correction} [${data.original}]
 Root Logic: ${data.root}
 Impact Loss: ${data.impact}
@@ -4392,6 +4571,22 @@ function renderAudit() {
         return matchesSearch && matchesCategory;
     });
 
+    // --- UPDATE RESEARCH STATS ---
+    const totalAudits = auditLog.length;
+    const highSeverityCount = auditLog.filter(i => i.severity === 'high').length;
+    const driftPercent = Math.round((highSeverityCount / totalAudits) * 100);
+
+    // Calculate Coverage
+    const booksInAudit = new Set();
+    auditLog.forEach(i => {
+        const book = i.verse.split(' ')[0];
+        booksInAudit.add(book);
+    });
+
+    document.getElementById('stat-total').textContent = totalAudits;
+    document.getElementById('stat-drift').textContent = `${driftPercent}%`;
+    document.getElementById('stat-coverage').textContent = `${booksInAudit.size}/66`;
+
     filtered.forEach(item => {
         const card = document.createElement('div');
         card.className = `audit-card severity-${item.severity}`;
@@ -4429,14 +4624,34 @@ document.getElementById('audit-search').addEventListener('input', renderAudit);
 // Start
 initApp();
 
-// PWA: Service Worker Registration
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('Service Worker: Registered (PWA Active)'))
-            .catch(err => console.log('Service Worker: Registration Failed', err));
-    });
+// Export Intelligence Brief
+function exportIntelligence() {
+    const data = {
+        session_id: `AUDIT-${Date.now()}`,
+        timestamp: new Date().toISOString(),
+        archive_total: auditLog.length,
+        recent_research: state.recentResearch,
+        lexicon_snapshot: state.lexicon
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `translation_audit_brief_${Date.now()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
+
+// Attach export handler
+document.addEventListener('DOMContentLoaded', () => {
+    const exportBtn = document.getElementById('export-intel');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', exportIntelligence);
+    }
+});
 
 // PWA: Install Prompt Logic
 let deferredPrompt;

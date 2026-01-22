@@ -87,6 +87,20 @@
             <section id="registry-view" class="registry-view">
                 <div class="registry-layout">
                     <div class="registry-main">
+                        <div class="stats-dashboard">
+                            <div class="stat-box">
+                                <label>AUDITS</label>
+                                <div id="stat-total" class="stat-val">0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>AVG. DRIFT</label>
+                                <div id="stat-drift" class="stat-val">0%</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>COVERAGE</label>
+                                <div id="stat-coverage" class="stat-val">0/66</div>
+                            </div>
+                        </div>
                         <div class="category-filters">
                             <button class="cat-btn active" data-cat="all">All Audits</button>
                             <button class="cat-btn" data-cat="physical">Physical Roots</button>
@@ -106,6 +120,11 @@
                         <div id="install-block" class="sidebar-block hidden" style="margin-top: 20px;">
                             <label>PLATFORM ACCESS</label>
                             <button id="install-btn" class="share-btn">INSTALL TO DESKTOP</button>
+                        </div>
+                        <div class="sidebar-block" style="margin-top: 20px;">
+                            <label>ARCHIVE LOGISTICS</label>
+                            <button id="export-intel" class="share-btn"
+                                style="border-color: var(--cyan); color: var(--cyan);">EXPORT RESEARCH BRIEF</button>
                         </div>
                     </aside>
                 </div>
