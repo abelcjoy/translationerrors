@@ -330,77 +330,77 @@ const auditLog = [
         bridge: { val: "Malak", script: "מַלְאָךְ" }
     },
     {
-        verse: "Genesis 1:3",
+        verse: "Proverbs 1:7",
+        category: "theology",
+        severity: "mid",
+        popular: "Fear of the Lord",
+        correction: "Awe-Strike / The Tremble",
+        original: "יִרְאַת",
+        impact: " 'Fear' implies terror of punishment. 'Yirah' is a physical 'Recoil' or 'Trembling' in the presence of massive weight. It's a bio-feedback response to greatness, not a psychological phobia.",
+        root: "YR (ירא) - To Flow/Tremble",
+        cite: "BDB 432 / Ges. 320",
+        phonetic: "yeer-AHT"
+    },
+    {
+        verse: "Proverbs 8:22",
+        category: "physical",
+        severity: "high",
+        popular: "Possessed / Created",
+        correction: "Erected / Nestled-In",
+        original: "קָנָנִי",
+        impact: " 'Possessed' implies ownership. 'Qanah' is the root for 'Reed' (Qaneh) used to measure or support. It means to 'Erect' or 'Establish' as a physical pillar of the system.",
+        root: "QN (קנה) - To Erect/Build",
+        cite: "BDB 888 / Ges. 735",
+        phonetic: "ka-NA-ni"
+    },
+    {
+        verse: "Psalm 136:1",
+        category: "theology",
+        severity: "mid",
+        popular: "Mercy / Lovingkindness",
+        correction: "Unwavering Loyalty / Tenacity",
+        original: "חֶסֶד",
+        impact: " 'Mercy' is an emotion. 'Chesed' is a 'Contractual Boundness'. It's the physical act of a soldier staying at his post no matter what. It's 'Relational Hardware'.",
+        root: "CHSD (חסד) - To Bow/Be Firm",
+        cite: "BDB 338",
+        phonetic: "KHEH-sed"
+    },
+    {
+        verse: "Romans 1:16",
+        category: "theology",
+        severity: "high",
+        popular: "Power of God",
+        correction: "The Dynamite-Force / Capability",
+        original: "δύναμις",
+        impact: " 'Power' is abstract. 'Dunamis' is 'Capability' or 'Inherent Energy'. It describes the Gospel as a literal 'Power-Plant' that can move heavy matter. It's 'Logic-Torque'.",
+        root: "DUNA - To Be Able",
+        cite: "BDAG 262 / Str. 1411",
+        phonetic: "DOO-nah-mees",
+        bridge: { val: "Koach", script: "כֹּחַ" }
+    },
+    {
+        verse: "Romans 12:2",
         category: "physical",
         severity: "mid",
-        popular: "Light",
-        correction: "Luminous Flow / Presence",
-        original: "אוֹר",
-        impact: " 'Or' isn't just photons. It's the physical 'Flow' of energy from a source. It's related to the 'Eye' and perception. It's a 'Seeing-Force'.",
-        root: "AR (אור) - Flow/Shine",
-        cite: "BDB 21 / Ges. 18",
-        phonetic: "OHR"
+        popular: "Transformed",
+        correction: "Metamorphosed / Form-Changed",
+        original: "μεταμορφωσθε",
+        impact: " 'Transform' is vague. 'Metamorpho' is a literal 'Structural Re-Mapping' of the exterior form. It's a 'Biological Re-Shaping' of the human's frequency.",
+        root: "MORPH - Form/Structure",
+        cite: "BDAG 644",
+        phonetic: "me-ta-mor-FO-sthe"
     },
     {
-        verse: "Deuteronomy 30:15",
+        verse: "Psalm 51:1",
         category: "theology",
-        severity: "high",
-        popular: "Life and Death",
-        correction: "Functional vs. Dysfunctional",
-        original: "חַיִּים / מָוֶת",
-        impact: " 'Chay' is 'Functional Motion'. 'Maweth' is 'Physical Cessation'. It's not about 'Heaven vs Hell'. It's about 'Working vs Broken' in the terrain.",
-        root: "CHY - Motion / MWT - Cease",
-        cite: "BDB 311 / 559",
-        phonetic: "khah-YEEM / MAH-veth"
-    },
-    {
-        verse: "Isaiah 9:6",
-        category: "theology",
-        severity: "high",
-        popular: "Prince of Peace",
-        correction: "Captain of Soundness",
-        original: "שַׂר־שָׁלוֹם",
-        impact: " 'Peace' (Shalom) isn't just a feeling. It's 'Shalam'—to be 'Paid in Full' or 'Complete'. The Prince is the 'CEO of a Functional System'. It's 'Systemic Integrity'.",
-        root: "SH-L-M (שלם) - Complete",
-        cite: "BDB 1022",
-        phonetic: "sar sha-LOM"
-    },
-    {
-        verse: "John 1:1",
-        category: "theology",
-        severity: "high",
-        popular: "The Word",
-        correction: "The Logic / The Blueprint",
-        original: "λόγος",
-        impact: " 'Logos' isn't just spoken words. It's the 'Account' or 'Rational Structure' of the universe. It's the 'Software' of reality.",
-        root: "LEG - To Collect/Account",
-        cite: "BDAG 598 / Str. 3056",
-        phonetic: "LOH-ghos",
-        bridge: { val: "Dabar", script: "דָּבָר" }
-    },
-    {
-        verse: "Matthew 28:18",
-        category: "theology",
-        severity: "high",
-        popular: "Power / Authority",
-        correction: "Jurisdiction / Out-Flow of Force",
-        original: "ἐξουσία",
-        impact: " 'Power' is just a feeling. 'Exousia' is the 'Legal Out-flow' of force from a source. It's 'Functional Jurisdiction'.",
-        root: "EX-ESTI - To Flow Out",
-        cite: "BDAG 352",
-        phonetic: "ex-oo-SEE-ah"
-    },
-    {
-        verse: "Psalm 18:2",
-        category: "physical",
         severity: "mid",
-        popular: "My Rock",
-        correction: "My Cliff-Side / Sharp Edge",
-        original: "סַלְעִי",
-        impact: " 'Sela' is a physical 'Craggy Cliff'. It describes God as a literal 'Tactical High-Ground'. It's about 'Geographic Advantage'.",
-        root: "SLC (סלע) - To be Sharp",
-        cite: "BDB 700 / Ges. 586",
-        phonetic: "sal-EE"
+        popular: "Blot out",
+        correction: "Wipe / Rub Away",
+        original: "מְחֵה",
+        impact: " 'Blot out' is ink. 'Machah' is to 'Wipe' or 'Stroke'. It's the physical act of rubbing a surface until the error is physically removed from the terrain.",
+        root: "MCH (מחה) - To Strike/Wipe",
+        cite: "BDB 562",
+        phonetic: "me-KHAY"
     },
     {
         verse: "Genesis 1:26",
@@ -3994,14 +3994,16 @@ async function renderScanner() {
 
         // Depth Meter Stats
         const mssDepth = (98 + Math.random() * 1.8).toFixed(1);
+        const lexicalFid = (92 + Math.random() * 7).toFixed(1);
         const semanticGlow = (85 + Math.random() * 12).toFixed(1);
 
         const statsPanel = document.createElement('div');
         statsPanel.className = 'scanner-stats';
         statsPanel.innerHTML = `
             <div class="stat"><label>MSS DEPTH:</label> <span>${mssDepth}%</span></div>
+            <div class="stat"><label>LEXICAL FID:</label> <span>${lexicalFid}%</span></div>
             <div class="stat"><label>SEMANTIC GLOW:</label> <span>${semanticGlow}%</span></div>
-            <div class="stat"><label>CID:</label> <span>ALPHA-9</span></div>
+            <div class="stat"><label>CID:</label> <span>${bookName.toUpperCase()}-X</span></div>
         `;
         container.appendChild(statsPanel);
 
