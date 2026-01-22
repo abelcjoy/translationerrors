@@ -1049,10 +1049,20 @@ footer p {
 @media (max-width: 1024px) {
     .app-container {
         display: block;
-        /* Break flex flow to ensure 100% width */
     }
 
-    /* REMOVE AUDIT/SIDEBAR CLUTTER FROM MOBILE */
+    .registry-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .registry-sidebar {
+        position: static;
+        order: -1;
+        /* Show sidebar (Recent Research / Install) at the top on mobile */
+    }
+
+    /* REMOVE NAVIGATION SIDEBAR CLUTTER FROM MOBILE */
     .menu-toggle,
     .progress-sidebar,
     .sidebar-overlay,
