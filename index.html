@@ -34,8 +34,17 @@
 </head>
 
 <body>
+    <canvas id="matrix-canvas"></canvas>
     <div class="app-container">
         <aside class="progress-sidebar">
+            <div class="sidebar-block">
+                <label>RESEARCH LEDGER</label>
+                <div id="ledger-list" class="ledger-list">
+                    <!-- Saved audits populated by JS -->
+                    <div class="empty-ledger">No Pinned Audits</div>
+                </div>
+            </div>
+            <div class="sidebar-divider"></div>
             <h3>AUDIT COVERAGE</h3>
             <div id="book-progress-list" class="book-progress-list">
                 <!-- Books populated by JS -->
